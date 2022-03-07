@@ -15,5 +15,5 @@ public static class Injector
         .AddDomainValidator()
         .AddRepositories()
         .AddEventStore(settings)
-        .AddPostgres(settings);
+        .AddMongo(settings);
 }

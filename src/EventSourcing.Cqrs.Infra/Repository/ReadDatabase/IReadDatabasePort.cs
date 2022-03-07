@@ -1,8 +1,8 @@
 ﻿using EventSourcingCqrs.Core.Todos.Aggregates;
 
-namespace EventSourcing.Cqrs.Infra.Repository.Postgres;
+namespace EventSourcing.Cqrs.Infra.Repository.ReadDatabase;
 
-internal interface IPostgresPort
+internal interface IReadDatabasePort
 {
     Task Save(Todo todo, Func<Task> beforeCommit = null);
     Task Update(Todo todo, Func<Task> beforeCommit = null);

@@ -10,18 +10,12 @@ services:
       dockerfile: src/EventSourcingCqrs.API/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ASPNETCORE_HTTPS_PORT=8001
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=1legradev@
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_URLS=http://+:80
     ports:
       - "8000:80"
-      - "8001:443"
-    volumes:
-      - ~/.aspnet/https:/https:ro
     depends_on: 
       - eventstore.db
-      - postgres.db
+      - mongo
     
   eventstore.db:
     container_name: eventstore
@@ -39,11 +33,11 @@ services:
       - "1113:1113"
       - "2113:2113"
   
-  postgres.db:
-    container_name: postgres
-    image: postgres
+  mongo:
+    image: mongo
+    container_name: mongo
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: X@bLVUv7bKH=xy
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     ports:
-      - "5435:5432"
+      - "27018:27017"

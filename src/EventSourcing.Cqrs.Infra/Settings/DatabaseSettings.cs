@@ -3,5 +3,6 @@
 public class DatabaseSettings
 {
     public string EventStoreConnectionString { get; set; }
-    public string PostgresConnectionString { get; set; }
+    public string MongoConnectionString { get; set; }
+    public string MongoConnectionDatabaseName { get; set; }
 }
