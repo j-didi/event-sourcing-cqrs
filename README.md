@@ -20,6 +20,11 @@ docker-compose -f ./infra/docker-compose.yml -p event-sourcing up -d
 localhost:8000/swagger
 ```
 
+#### EventStoreDB GUI
+```
+localhost:2113
+```
+
 ## 2. CQRS :on:
 
 CQRS stands for **Command Query Responsibility Segregation**. It's a pattern described by **Greg Young**. In short is the notion that you can use different models to **write** and **read** operations. The **separation could be logic**, segregating operations at application level, or **with different databases** for write and read operations.
