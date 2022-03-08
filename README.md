@@ -17,7 +17,7 @@ docker-compose -f ./infra/docker-compose.yml -p event-sourcing up -d
 
 #### Swagger
 ```
-https://localhost:8000/swagger
+localhost:8000/swagger
 ```
 
 ## 2. CQRS :on:
